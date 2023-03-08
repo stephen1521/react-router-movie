@@ -21,7 +21,7 @@ function Form (props) {
             year: year,
             dateAdded: ''
         }
-        props.filterMovies(movie);
+        props.addMovie(movie);
         reset();
     }
 
@@ -30,9 +30,9 @@ function Form (props) {
         setActors([]);
         setPlot("");
         setGenre("");
-        setImdbRating(0.0);
+        setImdbRating('');
         setDirector("");
-        setYear(0);
+        setYear('');
     }
 
     return (
