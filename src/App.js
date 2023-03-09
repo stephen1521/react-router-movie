@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import MovieForm from './components/MovieForm';
-import Form from './components/Form';
-import SearchBar from './components/SearchBar';
-
+// import MovieForm from './components/MovieForm';
+// import Form from './components/Form';
+// import SearchBar from './components/SearchBar';
+import { Outlet } from "react-router-dom";
+import NavBar from './components/NavBar';
 
 const moviesData = [
 	{
@@ -113,11 +114,11 @@ function App() {
 
 	const deleteOne = (index, title) => {
 		const movieToDelete = moviesData.findIndex((movie) => {
-			return movie.title === title
+			return movie.title === title;
 		})
 		moviesData.splice(movieToDelete, 1);
 		const filteredmovies = movies.filter((_, i) => {
-			return i !== index
+			return i !== index;
 		})
 		setMovies(filteredmovies);
 	}
@@ -149,12 +150,14 @@ function App() {
 
 	return (
 		<div>
-			<SearchBar searchTable={searchTable}/>
+			<NavBar />
+			<Outlet context={[movies, deleteOne, addMovie, searchTable]} />
+			{/* <SearchBar searchTable={searchTable}/>
 			<MovieForm 
 				MovieData={movies}
 				deleteOne={deleteOne}
 			/>
-			<Form addMovie={addMovie}/>
+			<Form addMovie={addMovie}/> */}
 		</div>
 	);
 }
