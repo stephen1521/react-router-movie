@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate, useOutletContext } from "react-router-dom";
-// import SearchBar from '../components/SearchBar';
+import { useOutletContext } from "react-router-dom";
+import SearchBar from '../components/SearchBar';
 
 // title 
 const Title = (props) => {
@@ -53,10 +53,13 @@ const TableBody = () => {
 
 // Movie Form
 const MovieForm = () => {
+    const [_,__,___, searchTable] = useOutletContext();
     return (
         <div>
-            {/* <SearchBar /> */}
             <Title />
+            <h3>Search(Enter empty string to reset list)</h3>
+            <SearchBar searchTable={searchTable}/>
+            <br></br>
             <table>
                 <TableHeader />
                 <TableBody />
