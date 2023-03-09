@@ -1,11 +1,5 @@
 import React from 'react';
 
-
-// title 
-const Title = (props) => {
-    return <h1>Movie Form</h1>;
-}
-
 //display movies
 const TableHeader = (props) => {
     return (
@@ -51,19 +45,12 @@ const TableBody = (props) => {
 
 // Movie Form
 const MovieForm = (props) => {
-    const { 
-        MovieData, 
-        deleteOne 
-        } = props
     return (
-        <div>
-            <Title />
             <table>
                 <TableHeader />
-                <TableBody MovieData={MovieData}
-                deleteOne={deleteOne}/>
+                <TableBody MovieData={props.movies}
+                deleteOne={props.deleteOne}/>
             </table>
-        </div>
     )
 }
 
